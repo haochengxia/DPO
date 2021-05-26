@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) Percy.
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
 """Data Privacy Control using Reinforcement Learning (DPRL)."""
 
 from __future__ import absolute_import
@@ -7,6 +12,7 @@ from __future__ import print_function
 
 import copy
 import os
+
 import numpy as np
 from sklearn import metrics
 import tensorflow.compat.v1 as tf

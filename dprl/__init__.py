@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree.
 
 """
-Data Privacy control using Reinforcement Learning Library
+Data Privacy optimization using Reinforcement Learning Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

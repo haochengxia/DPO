@@ -1,10 +1,12 @@
-# Differitial Privacy Control
+# Data Privacy Optimization
 
-This is an implementation for my undergraduate thesis.
+This is an implementation for my undergraduate thesis - _"Value-oriented Privacy Optimization in Model Based Data Marketplace"_.
 
 Including two parts:
 
-* DPRL (**D**ata **P**rivacy control using **R**einforcement **L**earning) 
+* DPRL (**D**ata **P**rivacy optimization using **R**einforcement **L**earning)
+
+* FDPRL (**F**ederated **D**ata **P**rivacy optimization using **R**einforcement **L**earning)
 
 ## Reference
 

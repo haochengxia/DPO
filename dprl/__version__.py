@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree.
 
 __title__ = 'dprl'
-__description__ = 'Data Privacy control using Reinforcement Learning.'
+__description__ = 'Data Privacy optimization using Reinforcement Learning.'
 __version__ = '0.0.1'
 __author__ = 'Percy'
 __author_email__ = 'xiahc@zju.edu.cn'

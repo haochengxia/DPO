@@ -4,7 +4,7 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-"""Data Privacy Control using Reinforcement Learning (DPRL)."""
+"""Data Privacy optimization using Reinforcement Learning (DPRL)."""
 
 from __future__ import absolute_import
 from __future__ import division

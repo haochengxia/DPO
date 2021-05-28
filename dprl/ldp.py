@@ -259,11 +259,11 @@ class SGD(object):
             gradient = _svm_train(self.x_train[[i]],
                                   self.y_train[[i]], d, self.beta, device)
         elif self.problem == 'linear-regression':
-            # TODO: support linear-regression
-            raise UnImpException
+            gradient = _linear_train(self.x_train[[i]],
+                                     self.y_train[[i]], d, self.beta, device)
         elif self.problem == 'logistic-regression':
-            # TODO: support logistic-regression
-            raise UnImpException
+            gradient = _logistic_train(self.x_train[[i]],
+                                       self.y_train[[i]], d, self.beta, device)
 
         return Numeric.wang_multi_dim_method(gradient, self.epsilon_list[i], self.method)
 
@@ -302,9 +302,10 @@ class SGD(object):
 
         y_pred = model(torch.from_numpy(self.x_test)).numpy()
 
-        # correct
-        y_pred[np.where(y_pred >= 0)] = 1
-        y_pred[np.where(y_pred < 0)] = 0
+        # correct for svm
+        if self.problem == 'svm':
+            y_pred[np.where(y_pred >= 0)] = 1
+            y_pred[np.where(y_pred < 0)] = 0
 
         return accuracy_score(self.y_test, y_pred)
 
@@ -365,6 +366,16 @@ def _svm_train(x, y, d, beta, device, c=0.01):
 
     grad[y[0]] = 0
     return grad
+
+
+def _linear_train(x, y, d, beta, device, c=0.01):
+    # TODO: support linear-regression
+    raise UnImpException('_linear_train (for linear regression task)')
+
+
+def _logistic_train(x, y, d, beta, device, c=0.01):
+    # TODO: support logistic-regression
+    raise UnImpException('_logistic_train (for logistic regression task)')
 
 
 def uniform_two(a1, a2, b1, b2):

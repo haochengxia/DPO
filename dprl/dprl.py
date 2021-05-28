@@ -21,6 +21,8 @@ from tensorflow.contrib import layers as contrib_layers
 
 from dprl.utils import gen_epsilon_list, gen_epsilon_dist, process_train_data
 
+import torch
+
 
 class Dprl(object):
 
@@ -48,10 +50,13 @@ class Dprl(object):
     # Network parameters
     self.hidden_dim = parameters['hidden_dim']
     self.comb_dim = parameters['comb_dim']
+
     self.outer_iterations = parameters['iterations']
+
     self.act_fn = parameters['activation']
     self.layer_number = parameters['layer_number']
     self.batch_size = np.min([parameters['batch_size'], len(x_train[:, 0])])
+
     self.learning_rate = parameters['learning_rate']
     self.epsilon_budget = parameters['epsilon_budget']
     self.epsilon_level = parameters['epsilon_level']

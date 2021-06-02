@@ -16,6 +16,20 @@ from pathlib import Path
 from .ldp import Numeric
 
 
+def g_random(epsilon_budget, num, high, low):
+    """
+    The comparison-oriented algorithm: G-Random
+    """
+    epsilon_list = np.random.normal(0, (high - low) / 6, num)
+    epsilon_list += epsilon_budget / num
+    for i, epsilon in enumerate(epsilon_list):
+        if epsilon < low:
+            epsilon_list[i] = low
+        if epsilon > high:
+            epsilon_list[i] = high
+    return epsilon_list
+
+
 def gen_epsilon_dist(epsilon_budget, num, high, low):
     high_num = (epsilon_budget - low * num) / (high - low)
     high_num = int(high_num)
@@ -33,7 +47,7 @@ def gen_epsilon_list(s_input, high, low):
 def process_train_data(x, y, epsilon_list):
     for i in range(len(y)):
         tp = np.append(x[i], y[i])
-        processed_tp = Numeric.wang_multi_dim_method(tp, epsilon_list[i], 'pm')
+        processed_tp = Numeric.wang_multi_dim_method(tp, epsilon_list[i], 'PM')
 
         if processed_tp[-1] <= 1:
             processed_tp[-1] = 0

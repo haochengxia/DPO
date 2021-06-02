@@ -21,8 +21,6 @@ from tensorflow.contrib import layers as contrib_layers
 
 from dprl.utils import gen_epsilon_list, gen_epsilon_dist, process_train_data
 
-import torch
-
 
 class Dprl(object):
 
@@ -274,7 +272,7 @@ class Dprl(object):
           p = np.append(p, [1.0, 0.0], axis=0)
         else:
           p = np.append(p, [0.0, 1.0], axis=0)
-      p = p.reshape((60, 2))
+      p = p.reshape((len(self.y_train), 2))
       y_pred_diff = np.abs(self.y_train_onehot - p)
     elif self.problem == 'regression':
       y_pred_diff = \
@@ -442,7 +440,7 @@ class Dprl(object):
         else:
           p = np.append(p, [0.0, 1.0], axis=0)
       print('y_train_valid_pred', p)
-      p = p.reshape((60, 2))
+      p = p.reshape((len(self.y_train), 2))
       y_train_hat = np.abs(y_train_onehot - p)
     elif self.problem == 'regression':
       y_train_hat = np.abs(y_train_onehot - y_train_valid_pred) / y_train_onehot

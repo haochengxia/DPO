@@ -386,4 +386,3 @@ def uniform_two(a1, a2, b1, b2):
         return np.random.uniform(a1, a2)
     else:
         return np.random.uniform(b1, b2)
-
